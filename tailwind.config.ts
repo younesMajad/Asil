@@ -9,15 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: '#0A0A0A',
-        charcoal: '#1A1A1A',
-        graphite: '#2C2C2C',
-        smoke: '#6B6B6B',
-        stone: '#D4C9B8',
-        parchment: '#F5F0E8',
-        gold: {
-          accent: '#C9A96E',
-        }
+        obsidian: '#0a0a0a',
+        charcoal: '#1a1a1a',
+        graphite: '#3a3a3a',
+        smoke: '#6b6b6b',
+        stone: '#a8a29e',
+        parchment: '#f5f0e8',
+        'gold-accent': '#d4a574',
       },
       fontFamily: {
         serif: ['var(--font-cormorant)', 'serif'],
@@ -25,7 +23,10 @@ const config: Config = {
       },
       letterSpacing: {
         architect: '0.15em',
-        cinematic: '0.25em',
+        cinematic: '0.08em',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

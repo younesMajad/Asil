@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --obsidian: #0a0a0a;
+    --stone: #a8a29e;
+    --smoke: #6b6b6b;
+    --graphite: #3a3a3a;
+    --gold-accent: #d4a574;
+    --white: #ffffff;
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -8,12 +19,118 @@
   }
 
   body {
-    
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: var(--font-dm-sans), sans-serif;
   }
 }
 
-/* Luxury Fine-Line Structural Blueprint Utility Classes */
-.architectural-line {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.1);
+@layer components {
+  .section-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1.5rem;
+    position: relative;
+  }
+
+  .section-title {
+    font-family: var(--font-cormorant), serif;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+  }
+
+  .architectural-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .button-primary {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .button-primary:hover {
+    background-color: #d4a574;
+    color: #ffffff;
+  }
+
+  .button-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .button-secondary:hover {
+    border-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(to right, #d4a574, #ffffff, #a8a29e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .accent-line {
+    height: 1px;
+    background: linear-gradient(to right, rgba(212, 165, 116, 0.4), rgba(255, 255, 255, 0.1), transparent);
+  }
+}
+
+@layer utilities {
+  .tracking-architect {
+    letter-spacing: 0.15em;
+  }
+
+  .tracking-cinematic {
+    letter-spacing: 0.08em;
+  }
+
+  .text-obsidian {
+    color: #0a0a0a;
+  }
+
+  .text-stone {
+    color: #a8a29e;
+  }
+
+  .text-smoke {
+    color: #6b6b6b;
+  }
+
+  .text-gold-accent {
+    color: #d4a574;
+  }
+
+  .bg-obsidian {
+    background-color: #0a0a0a;
+  }
+
+  .bg-gold-accent {
+    background-color: #d4a574;
+  }
 }

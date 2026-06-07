@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "ASIL | Architecture in Motion",
   description:
     "AI-powered construction content and luxury real-estate marketing assets.",
+    icons : {
+      icon: "/logo.jpeg",
+     }
 };
 
 export default function RootLayout({
@@ -33,8 +36,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmSans.variable} bg-obsidian antialiased selection:bg-stone selection:text-obsidian`}
     >
       <body>
-         z
-         <Navigation />
+        <Navigation />
         {children}
         
       </body>
