@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navigation = () => {
     <nav
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-40 py-6 md:py-8 transition-all duration-300 ${
-        scrollY > 50
+        scrollY > 50 || isOpen
           ? "bg-obsidian/95 backdrop-blur-md border-b border-white/10"
           : "bg-transparent border-b border-white/5"
       }`}
@@ -40,10 +40,10 @@ const Navigation = () => {
           className="text-white cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <img src="/logo.jpeg" alt="Logo" className="h-10 w-10 rounded" />
-            <span className="font-serif text-xl font-semibold tracking-tight hidden sm:inline">
+            <img src="/logo.jpeg" alt="Logo" className="h-10 w-10 rounded" loading="lazy" />
+            <a href="/" className="font-serif text-xl font-semibold tracking-tight hidden sm:inline">
               ASIL
-            </span>
+            </a>
           </div>
         </motion.div>
 
@@ -80,33 +80,45 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu with Animation */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-obsidian/98 backdrop-blur-md border-t border-white/10"
-        >
-          <div className="flex flex-col items-start py-8 px-6 gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-lg uppercase tracking-[1px] text-stone hover:text-gold-accent transition-colors"
+      {/* Mobile Menu with Accordion Animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-obsidian/98 backdrop-blur-md border-t border-white/10 overflow-hidden"
+          >
+            <div className="flex flex-col items-start py-8 px-6 gap-6">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="text-lg uppercase tracking-[1px] text-stone hover:text-gold-accent transition-colors w-full"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.05 }}
+                className="w-full button-primary text-xs mt-4"
               >
-                {link.name}
-              </a>
-            ))}
-            <button className="w-full button-primary text-xs mt-4">
-              Start Project
-            </button>
-          </div>
-        </motion.div>
-      )}
+                Start Project
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
 
 export default Navigation;
+

@@ -39,7 +39,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-obsidian text-white py-32 px-6 md:p-12 border-t border-white/5 scroll-mt-20"
+      className="bg-obsidian text-white pt-32 pb-32 lg:pb-56 px-6 md:p-12 border-t border-white/5 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
         <header className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -67,23 +67,27 @@ export default function Portfolio() {
             <motion.article
               key={project.id}
               variants={fadeInUp as any}
-              className={`flex flex-col ${idx % 2 === 1 ? "lg:translate-y-24" : ""}`}
+              className={`flex flex-col cursor-pointer ${idx % 2 === 1 ? "lg:translate-y-24" : ""}`}
             >
               {/* Media Container */}
               <div className="relative aspect-16/10 bg-graphite overflow-hidden group border border-white/5">
-                <div className="absolute inset-0 bg-obsidian/20 z-10 transition-opacity duration-500 group-hover:opacity-0" />
-                {/* Fallback frame representing dynamic cinematic capture render */}
-                <div className="w-full h-full transform scale-100 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 bg-linear-to-tr from-graphite to-charcoal" />
+                <div className="absolute inset-0 bg-obsidian/30 z-10 transition-opacity duration-500 group-hover:bg-obsidian/10" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform scale-100 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  loading="lazy"
+                />
 
-                <div className="absolute top-4 left-4 z-20 font-mono text-xs text-stone/60 bg-obsidian/60 backdrop-blur-md px-3 py-1 border border-white/5">
+                <div className="absolute top-4 left-4 z-20 font-mono text-xs text-stone/60 bg-obsidian/65 backdrop-blur-md px-3 py-1 border border-white/5">
                   SYS_REF: {project.id} // LUXE_V
                 </div>
               </div>
 
               {/* Metric Card Footer */}
-              <div className="mt-6 flex justify-between items-start border-b border-white/5 pb-6">
+              <div className="mt-6 flex justify-between items-start border-b border-white/5 pb-6 group">
                 <div>
-                  <h3 className="font-serif text-2xl font-light tracking-wide">
+                  <h3 className="font-serif text-2xl font-light tracking-wide group-hover:text-gold-accent transition-colors">
                     {project.title}
                   </h3>
                   <p className="font-sans text-xs text-smoke uppercase tracking-wider mt-1">
@@ -106,3 +110,4 @@ export default function Portfolio() {
     </section>
   );
 }
+

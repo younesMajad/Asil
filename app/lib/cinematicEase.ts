@@ -30,7 +30,7 @@ export const scaleInCenter = {
   animate: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 1.0, ease: cinematicEase }
+    transition: { duration: 1.0, ease: cinematicEase  },
   }
 }
 

@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, cinematicEase } from "../lib/cinematicEase";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { BsInstagram, BsTwitterX } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
+import { PiMicrophoneSlashFill } from "react-icons/pi";
+import { Mail, MapIcon } from "lucide-react";
+// import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -47,7 +51,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: cinematicEase as any }}
@@ -70,31 +74,31 @@ export default function Contact() {
 
             <div className="space-y-2">
               <div className="flex items-center gap-3 mb-2">
-                <Phone size={20} className="text-gold-accent" />
+                <PiMicrophoneSlashFill size={20} className="text-gold-accent" />
                 <span className="font-sans text-xs uppercase tracking-cinematic text-gold-accent">
                   Phone
                 </span>
               </div>
               <a
-                href="tel:+971544000123"
+                href="tel:+212 000 00 00 00"
                 className="font-serif text-2xl font-light hover:text-gold-accent transition-colors"
               >
-                +971 54 400 0123
+                +212 000 00 00 00 
               </a>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-3 mb-2">
-                <MapPin size={20} className="text-gold-accent" />
+                <MapIcon size={20} className="text-gold-accent" />
                 <span className="font-sans text-xs uppercase tracking-cinematic text-gold-accent">
                   Location
                 </span>
               </div>
               <p className="font-serif text-2xl font-light">
-                Abu Dhabi, UAE
+                Marrakech 
                 <br />
                 <span className="text-sm text-stone font-sans">
-                  [24.4539° N, 54.3773° E]
+                   [add your address]
                 </span>
               </p>
             </div>
@@ -102,28 +106,31 @@ export default function Contact() {
             <div className="flex gap-4 pt-8">
               <a
                 href="#"
-                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 transition-all"
+                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 hover:text-gold-accent transition-all duration-300 rounded"
+                aria-label="Instagram"
               >
-            
+                <BsInstagram size={20} />
               </a>
               <a
                 href="#"
-                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 transition-all"
+                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 hover:text-gold-accent transition-all duration-300 rounded"
+                aria-label="LinkedIn"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7z" />
-                </svg>
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href="#"
+                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 hover:text-gold-accent transition-all duration-300 rounded"
+                aria-label="Twitter"
+              >
+                <BsTwitterX size={20} />
               </a>
             </div>
           </motion.div>
 
           {/* Contact Form */}
           <motion.form
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: cinematicEase as any }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "../lib/cinematicEase";
+import { cinematicEase, fadeInUp, staggerContainer } from "../lib/cinematicEase";
 
 const pillars = [
   {
@@ -56,22 +56,25 @@ export default function Pillars() {
             <motion.div
               key={pillar.num}
               variants={fadeInUp as any}
-              className="py-12 md:py-16 md:px-8 first:pl-0 last:pr-0 flex flex-col justify-between group"
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.4, ease: cinematicEase as any }}
+              className="py-12 md:py-16 md:px-8 md:first:pl-0 md:last:pr-0 flex flex-col justify-between group cursor-pointer"
             >
               <div>
                 <span className="font-serif text-xs text-gold-accent tracking-widest uppercase block mb-8 font-semibold">
                   Pillar // {pillar.num}
                 </span>
-                <h3 className="font-serif text-3xl font-light tracking-wide mb-6 text-white">
+                <h3 className="font-serif text-3xl font-light tracking-wide mb-6 text-white group-hover:text-gold-accent transition-colors">
                   {pillar.title}
                 </h3>
                 <p className="font-sans text-sm text-stone leading-relaxed tracking-wide font-light max-w-sm">
                   {pillar.description}
                 </p>
               </div>
-              <div className="mt-12 h-0.5 bg-gold-accent origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 max-w-15" />
+              <div className="mt-12 h-0.5 bg-gold-accent origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 max-w-[60px]" />
             </motion.div>
           ))}
+
         </motion.div>
       </div>
     </section>

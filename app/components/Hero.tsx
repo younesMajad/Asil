@@ -6,12 +6,32 @@ import { cinematicEase, fadeInUp, lineReveal } from "../lib/cinematicEase";
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-obsidian text-white flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none pt-24 md:pt-32">
-      {/* Structural Architectural Grid Overlay */}
+      {/* Structural Architectural Grid Overlay with Draw-in Animations */}
       <div className="absolute inset-0 pointer-events-none grid grid-cols-4 h-full w-full px-6 md:p-12">
-        <div className="border-l border-white/5 h-full w-full" />
-        <div className="border-l border-white/5 h-full w-full" />
-        <div className="border-l border-white/5 h-full w-full" />
-        <div className="border-l border-r border-white/5 h-full w-full" />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.8, ease: cinematicEase as any }}
+          className="border-l border-white/5 h-full w-full origin-top"
+        />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.8, delay: 0.15, ease: cinematicEase as any }}
+          className="border-l border-white/5 h-full w-full origin-top"
+        />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.8, delay: 0.3, ease: cinematicEase as any }}
+          className="border-l border-white/5 h-full w-full origin-top"
+        />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.8, delay: 0.45, ease: cinematicEase as any }}
+          className="border-l border-r border-white/5 h-full w-full origin-top"
+        />
       </div>
 
       {/* Top Navigation Label (Subtle) */}
@@ -29,7 +49,7 @@ export default function Hero() {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1.4, ease: cinematicEase as any }}
-            className="font-serif text-5xl md:text-8xl font-light tracking-tight leading-[0.9]"
+            className="font-serif text-4xl sm:text-6xl md:text-8xl font-light tracking-tight leading-[0.95] md:leading-[0.9]"
           >
             Architecture <br />
             <span className="italic text-gold-accent font-normal">
@@ -63,8 +83,8 @@ export default function Hero() {
           animate="animate"
           className="flex flex-wrap gap-4 md:gap-6 mt-12 font-sans text-xs uppercase tracking-cinematic"
         >
-          <button className="button-primary">Start a Project</button>
-          <button className="button-secondary">View Our Work</button>
+          <a href="#contact" className="button-primary text-center">Start a Project</a>
+          <a href="#portfolio" className="button-secondary text-center">View Our Work</a>
         </motion.div>
       </div>
 
