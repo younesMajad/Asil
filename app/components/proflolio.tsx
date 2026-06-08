@@ -45,7 +45,7 @@ export default function Portfolio() {
         <header className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-3">
-              Selected Folio
+              [ The Work ]
             </span>
             <h2 className="font-serif text-4xl md:text-6xl font-light">
               Architectural Manifestations
@@ -80,7 +80,7 @@ export default function Portfolio() {
                 />
 
                 <div className="absolute top-4 left-4 z-20 font-mono text-xs text-stone/60 bg-obsidian/65 backdrop-blur-md px-3 py-1 border border-white/5">
-                  SYS_REF: {project.id} // LUXE_V
+                {project.id} 
                 </div>
               </div>
 

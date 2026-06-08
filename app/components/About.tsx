@@ -16,7 +16,7 @@ export default function About() {
           className="lg:col-span-5 lg:sticky lg:top-32"
         >
           <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4">
-            [ Manifesto ]
+            [ Who We Are ]
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight tracking-wide text-stone">
             We render the unseen discipline of luxury construction.

@@ -66,14 +66,14 @@ const Navigation = () => {
 
         {/* CTA & Mobile Button */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block button-primary text-xs px-6 py-2">
-            Start Project
-          </button>
+          <a href="#contact" className="hidden md:block button-primary text-xs px-6 py-2">
+            Start Your Project
+          </a>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white hover:text-gold-accent transition-colors"
+            className="md:hidden p-2 text-white hover:text-gold  transition-all"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -104,14 +104,16 @@ const Navigation = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <motion.button
+              <motion.a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
-                className="w-full button-primary text-xs mt-4"
+                className="w-full button-primary text-center text-xs mt-4"
               >
-                Start Project
-              </motion.button>
+                Start Your Project
+              </motion.a>
             </div>
           </motion.div>
         )}

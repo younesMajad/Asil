@@ -1,14 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp, cinematicEase } from "../lib/cinematicEase";
 import { BsInstagram, BsTwitterX } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
 import { PiMicrophoneSlashFill } from "react-icons/pi";
 import { Mail, MapIcon } from "lucide-react";
-// import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    projectType: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all required fields.", {
+        position: "bottom-right",
+        autoClose: 4000,
+        theme: "dark",
+      });
+      return;
+    }
+
+    toast.success("Thank you! Your inquiry has been sent.", {
+      position: "bottom-right",
+      autoClose: 5000,
+      theme: "dark",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      projectType: "",
+      message: "",
+    });
+  };
+
   return (
     <section
       id="contact"
@@ -32,7 +66,7 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4">
-            [ Get In Touch ]
+            [ Start Your Project ]
           </span>
           <h2 className="font-serif text-5xl md:text-7xl font-light tracking-tight mb-6">
             Let's Create
@@ -130,6 +164,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <motion.form
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -140,7 +175,10 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-transparent border-b border-white/20 py-3 font-serif text-lg placeholder-stone/50 focus:outline-none focus:border-gold-accent transition-colors"
+                required
               />
             </div>
 
@@ -148,7 +186,10 @@ export default function Contact() {
               <input
                 type="email"
                 placeholder="Email Address"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full bg-transparent border-b border-white/20 py-3 font-serif text-lg placeholder-stone/50 focus:outline-none focus:border-gold-accent transition-colors"
+                required
               />
             </div>
 
@@ -156,6 +197,8 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Project Type"
+                value={formData.projectType}
+                onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                 className="w-full bg-transparent border-b border-white/20 py-3 font-serif text-lg placeholder-stone/50 focus:outline-none focus:border-gold-accent transition-colors"
               />
             </div>
@@ -163,8 +206,11 @@ export default function Contact() {
             <div>
               <textarea
                 placeholder="Tell us about your project"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={4}
                 className="w-full bg-transparent border-b border-white/20 py-3 font-serif text-lg placeholder-stone/50 focus:outline-none focus:border-gold-accent transition-colors resize-none"
+                required
               />
             </div>
 
@@ -174,6 +220,7 @@ export default function Contact() {
           </motion.form>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 }

@@ -39,7 +39,7 @@ export default function Pillars() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4">
-          Strategic Framework
+          [ Our solution ]
         </span>
         <h2 className="font-serif text-4xl md:text-6xl font-light mb-20 max-w-3xl leading-tight text-white">
           Three core content vectors. Engineered for conversion.
@@ -61,8 +61,8 @@ export default function Pillars() {
               className="py-12 md:py-16 md:px-8 md:first:pl-0 md:last:pr-0 flex flex-col justify-between group cursor-pointer"
             >
               <div>
-                <span className="font-serif text-xs text-gold-accent tracking-widest uppercase block mb-8 font-semibold">
-                  Pillar // {pillar.num}
+                <span className="font-serif text-lg text-gold-accent tracking-widest uppercase block mb-8 font-semibold animate-pulse">
+                 {pillar.num}
                 </span>
                 <h3 className="font-serif text-3xl font-light tracking-wide mb-6 text-white group-hover:text-gold-accent transition-colors">
                   {pillar.title}

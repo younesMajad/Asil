@@ -45,6 +45,14 @@ export default function Hero() {
       {/* Hero Core Content */}
       <div className="z-10 max-w-5xl my-auto pt-12 pb-12">
         <div className="overflow-hidden mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: cinematicEase as any }}
+            className="font-sans text-lg text-gold-accent uppercase tracking-cinematic block mb-4 animate-pulse"
+          >
+             See It To Believe It 
+          </motion.span>
           <motion.h1
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -52,7 +60,7 @@ export default function Hero() {
             className="font-serif text-4xl sm:text-6xl md:text-8xl font-light tracking-tight leading-[0.95] md:leading-[0.9]"
           >
             Architecture <br />
-            <span className="italic text-gold-accent font-normal">
+            <span className="italic text-gold-accent font-normal animate-pulse">
               in Motion
             </span>
           </motion.h1>
@@ -83,15 +91,15 @@ export default function Hero() {
           animate="animate"
           className="flex flex-wrap gap-4 md:gap-6 mt-12 font-sans text-xs uppercase tracking-cinematic"
         >
-          <a href="#contact" className="button-primary text-center">Start a Project</a>
-          <a href="#portfolio" className="button-secondary text-center">View Our Work</a>
+          <a href="#contact" className="button-primary text-center">Start Your Project</a>
+          <a href="#portfolio" className="button-secondary text-center">The Work</a>
         </motion.div>
       </div>
 
       {/* Footer Baseline Lat/Long Indicators */}
       <div className="z-10 flex justify-between items-end w-full text-[10px] md:text-xs font-mono text-graphite tracking-widest uppercase">
         <span className="hidden md:block">
-          AI-Studio // [24.4539° N, 54.3773° E]
+          ASIL ©2026 
         </span>
         <span className="ml-auto">Scroll to Explore</span>
       </div>
