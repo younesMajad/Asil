@@ -44,7 +44,7 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-3">
+            <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-3 animate-pulse">
               [ The Work ]
             </span>
             <h2 className="font-serif text-4xl md:text-6xl font-light">
@@ -52,7 +52,7 @@ export default function Portfolio() {
             </h2>
           </div>
           <span className="font-sans text-xs text-smoke uppercase tracking-architect">
-            [ Phase I - III Available ]
+           Phase I - III Available 
           </span>
         </header>
 

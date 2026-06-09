@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type MouseEvent } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +17,28 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (hash: string) => {
+    const target = document.querySelector(hash);
+    if (target) {
+      (target as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      window.history.replaceState(null, "", hash);
+    }
+  };
+
+  const handleMobileNavClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    setIsOpen(false);
+    scrollToSection(href);
+  };
+
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
@@ -40,8 +62,16 @@ const Navigation = () => {
           className="text-white cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <img src="/logo.jpeg" alt="Logo" className="h-10 w-10 rounded" loading="lazy" />
-            <a href="/" className="font-serif text-xl font-semibold tracking-tight hidden sm:inline">
+            <img
+              src="/logo.jpeg"
+              alt="Logo"
+              className="h-10 w-10 rounded"
+              loading="lazy"
+            />
+            <a
+              href="/"
+              className="font-serif text-xl font-semibold tracking-tight hidden sm:inline"
+            >
               ASIL
             </a>
           </div>
@@ -66,12 +96,16 @@ const Navigation = () => {
 
         {/* CTA & Mobile Button */}
         <div className="flex items-center gap-4">
-          <a href="#contact" className="hidden md:block button-primary text-xs px-6 py-2">
+          <a
+            href="#contact"
+            className="hidden md:block button-primary text-xs px-6 py-2"
+          >
             Start Your Project
           </a>
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-white hover:text-gold  transition-all"
           >
@@ -93,9 +127,9 @@ const Navigation = () => {
             <div className="flex flex-col items-start py-8 px-6 gap-6">
               {navLinks.map((link, i) => (
                 <motion.a
-                  key={link.name}
+                  key={i}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(event) => handleMobileNavClick(event, link.href)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
@@ -106,7 +140,7 @@ const Navigation = () => {
               ))}
               <motion.a
                 href="#contact"
-                onClick={() => setIsOpen(false)}
+                onClick={(event) => handleMobileNavClick(event, "#contact")}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
@@ -123,4 +157,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-

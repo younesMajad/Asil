@@ -5,7 +5,7 @@ import { cinematicEase, fadeInUp, lineReveal } from "../lib/cinematicEase";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-obsidian text-white flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none pt-24 md:pt-32">
+    <section id="home" className="relative min-h-screen bg-obsidian text-white flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none pt-24 md:pt-32">
       {/* Structural Architectural Grid Overlay with Draw-in Animations */}
       <div className="absolute inset-0 pointer-events-none grid grid-cols-4 h-full w-full px-6 md:p-12">
         <motion.div
@@ -59,7 +59,7 @@ export default function Hero() {
             transition={{ duration: 1.4, ease: cinematicEase as any }}
             className="font-serif text-4xl sm:text-6xl md:text-8xl font-light tracking-tight leading-[0.95] md:leading-[0.9]"
           >
-            Architecture <br />
+            Architecture {" "}
             <span className="italic text-gold-accent font-normal animate-pulse">
               in Motion
             </span>
@@ -101,7 +101,7 @@ export default function Hero() {
         <span className="hidden md:block">
           ASIL ©2026 
         </span>
-        <span className="ml-auto">Scroll to Explore</span>
+        <span className="ml-auto animate-bounce italic" >Scroll to Explore</span>
       </div>
     </section>
   );

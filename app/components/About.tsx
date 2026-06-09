@@ -15,8 +15,8 @@ export default function About() {
           transition={{ duration: 1, ease: cinematicEase as any }}
           className="lg:col-span-5 lg:sticky lg:top-32"
         >
-          <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4">
-            [ Who We Are ]
+          <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4 animate-pulse">
+             Who We Are 
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight tracking-wide text-stone">
             We render the unseen discipline of luxury construction.

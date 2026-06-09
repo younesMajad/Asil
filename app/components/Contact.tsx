@@ -65,8 +65,8 @@ export default function Contact() {
           transition={{ duration: 1, ease: cinematicEase as any }}
           className="text-center mb-16"
         >
-          <span className="font-sans text-xs text-gold-accent uppercase tracking-cinematic block mb-4">
-            [ Start Your Project ]
+          <span className="font-sans text-lg text-gold-accent uppercase tracking-cinematic block mb-4 animate-pulse">
+             Start Your Project 
           </span>
           <h2 className="font-serif text-5xl md:text-7xl font-light tracking-tight mb-6">
             Let's Create
@@ -132,7 +132,7 @@ export default function Contact() {
                 Marrakech 
                 <br />
                 <span className="text-sm text-stone font-sans">
-                   [add your address]
+                  [ add  address]
                 </span>
               </p>
             </div>
@@ -215,7 +215,7 @@ export default function Contact() {
             </div>
 
             <button type="submit" className="button-primary w-full mt-8">
-              Send Inquiry
+              Send 
             </button>
           </motion.form>
         </div>
