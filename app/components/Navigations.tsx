@@ -48,11 +48,10 @@ const Navigation = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-40 py-6 md:py-8 transition-all duration-300 ${
-        scrollY > 50 || isOpen
+      className={`fixed top-0 left-0 right-0 z-40 py-6 md:py-8 transition-all duration-300 ${scrollY > 50 || isOpen
           ? "bg-obsidian/95 backdrop-blur-md border-b border-white/10"
           : "bg-transparent border-b border-white/5"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
@@ -115,43 +114,39 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu with Accordion Animation */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-obsidian/98 backdrop-blur-md border-t border-white/10 overflow-hidden"
-          >
-            <div className="flex flex-col items-start py-8 px-6 gap-6">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={i}
-                  href={link.href}
-                  onClick={(event) => handleMobileNavClick(event, link.href)}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="text-lg uppercase tracking-[1px] text-stone hover:text-gold-accent transition-colors w-full"
+      <nav>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden bg-obsidian/95 backdrop-blur-md border-t border-white/10 overflow-hidden"
+            >
+              <div className="flex flex-col items-center gap-6 py-6">
+                {navLinks.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.href}
+                    onClick={(e) => handleMobileNavClick(e, link.href)}
+                    className="text-lg uppercase tracking-[2px] text-stone hover:text-gold-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleMobileNavClick(e, "#contact")}
+                  className="button-primary text-sm px-6 py-2 mt-4"
                 >
-                  {link.name}
-                </motion.a>
-              ))}
-              <motion.a
-                href="#contact"
-                onClick={(event) => handleMobileNavClick(event, "#contact")}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.05 }}
-                className="w-full button-primary text-center text-xs mt-4"
-              >
-                Start Your Project
-              </motion.a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  Start Your Project
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </nav>
   );
 };

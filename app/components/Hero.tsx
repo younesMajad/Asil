@@ -7,6 +7,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen bg-obsidian text-white flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none pt-24 md:pt-32">
       {/* Structural Architectural Grid Overlay with Draw-in Animations */}
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none" src="/vidoes/video1.mp4" />
+
       <div className="absolute inset-0 pointer-events-none grid grid-cols-4 h-full w-full px-6 md:p-12">
         <motion.div
           initial={{ scaleY: 0 }}
@@ -34,12 +36,12 @@ export default function Hero() {
         />
       </div>
 
+
       {/* Top Navigation Label (Subtle) */}
       <div className="z-10 hidden md:flex justify-between items-baseline w-full font-sans tracking-architect uppercase text-xs text-smoke">
         <span className="font-serif text-white text-lg tracking-normal normal-case font-semibold">
           ASIL
         </span>
-        <span>Architecture in Motion ©2026</span>
       </div>
 
       {/* Hero Core Content */}
