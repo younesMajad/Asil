@@ -59,7 +59,7 @@ export default function About() {
               transition={{ duration: 1, delay: 0.3, ease: cinematicEase as any }}
             >
               <span className="text-gold-accent block mb-2">
-                // Digital Spatial Optimization
+               
               </span>
               <p className="text-stone normal-case font-light text-sm tracking-normal leading-relaxed">
                 Instagram-first frameworks configured specifically to match the
@@ -74,7 +74,7 @@ export default function About() {
               transition={{ duration: 1, delay: 0.4, ease: cinematicEase as any }}
             >
               <span className="text-gold-accent block mb-2">
-                // Kinetic Preservation
+               
               </span>
               <p className="text-stone normal-case font-light text-sm tracking-normal leading-relaxed">
                 Preserving structural timelines through hyper-stabilized,

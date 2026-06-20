@@ -6,7 +6,7 @@ import { fadeInUp, cinematicEase } from "../lib/cinematicEase";
 import { BsInstagram, BsTwitterX } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
 import { PiMicrophoneSlashFill } from "react-icons/pi";
-import { Mail, MapIcon } from "lucide-react";
+import { Mail, MapIcon, Phone } from "lucide-react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -102,13 +102,13 @@ export default function Contact() {
                 href="mailto:hello@asil.studio"
                 className="font-serif text-2xl font-light hover:text-gold-accent transition-colors"
               >
-                hello@asil.studio
+                asilstudio@gmail.com
               </a>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-3 mb-2">
-                <PiMicrophoneSlashFill size={20} className="text-gold-accent" />
+                <Phone size={20} className="text-gold-accent" />
                 <span className="font-sans text-xs uppercase tracking-cinematic text-gold-accent">
                   Phone
                 </span>
@@ -117,7 +117,7 @@ export default function Contact() {
                 href="tel:+212 000 00 00 00"
                 className="font-serif text-2xl font-light hover:text-gold-accent transition-colors"
               >
-                +212 000 00 00 00 
+                +212 7 68 60 00 21
               </a>
             </div>
 
@@ -129,11 +129,7 @@ export default function Contact() {
                 </span>
               </div>
               <p className="font-serif text-2xl font-light">
-                Marrakech 
-                <br />
-                <span className="text-sm text-stone font-sans">
-                  [ add  address]
-                </span>
+                Marrakech , Morocco
               </p>
             </div>
 
@@ -151,13 +147,6 @@ export default function Contact() {
                 aria-label="LinkedIn"
               >
                 <FaLinkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="p-3 border border-white/20 hover:border-gold-accent hover:bg-gold-accent/10 hover:text-gold-accent transition-all duration-300 rounded"
-                aria-label="Twitter"
-              >
-                <BsTwitterX size={20} />
               </a>
             </div>
           </motion.div>

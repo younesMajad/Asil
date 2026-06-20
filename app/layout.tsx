@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
-import Navigation from "./components/Navigations";
+import { Navigation } from "./Navigations";
 import CustomCursor from "./components/CustomCursor";
 import "@/app/globals.css";
+import  Footer from "./Footer";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,8 +20,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "ASIL | Architecture in Motion",
-  description:
-    "AI-powered construction content and luxury real-estate marketing assets.",
+  description: "AI-powered construction content real-estate marketing assets.",
   icons: {
     icon: "/logo.jpeg",
   },
@@ -37,11 +37,11 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmSans.variable} bg-obsidian antialiased selection:bg-stone selection:text-obsidian`}
     >
       <body>
-        <CustomCursor />
         <Navigation />
+        <CustomCursor />
         {children}
+        <Footer/>
       </body>
     </html>
   );
-}
-
+  }
