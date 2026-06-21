@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useLayoutEffect } from "react";
-import { gsap } from "./lib/gsap";
+import { gsap } from "gsap";
 
 interface AnimatedCounterProps {
   value: number;
