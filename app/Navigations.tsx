@@ -78,7 +78,7 @@ export function Navigation() {
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-8 md:flex "
           aria-label="Main navigation"
         >
           {navLinks.map((link) => (
@@ -133,7 +133,7 @@ export function Navigation() {
       <nav
         id="mobile-menu"
         className={cn(
-          "md:hidden z-40 fixed flex flex-col justify-center items-center gap-8 bg-black px-70 py-24 text-center backdrop-blur-xl transition-all duration-500",
+          "md:hidden z-40 fixed flex flex-col justify-center mb-10 py-5 items-center gap-10 bg-black/90 w-full  text-center backdrop-blur-lg transition-all duration-500",
           menuOpen
             ? "opacity-100 pointer-events-auto translate-y-0"
             : "opacity-0 pointer-events-none -translate-y-4",
